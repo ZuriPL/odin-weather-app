@@ -9,6 +9,40 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <div class="nav">
+        <div class="sidebar-left">
+            <div class="logo">
+                <img style ="width: 24px; height: auto;" src="sun.png" alt="logo">
+            </div>
+            <input type="search" id="searchbar" placeholder="Search for a location">
+        </div>
+        <div class="sidebar-right">
+            <label for="temp-toggle">Farenheit?</label>
+            <input type="checkbox" name="temp-toggle" id="temp-toggle">
+            <button class="info"></button>
+        </div>
+    </div>
+    <div class="main">
+        <div class="upper upper-left">
+            <p class="degs main-temp">20</p>
+            <p>Sunny</p>
+            <p> Feels like <span class="degs feel-temp">21</span></p>
+            
+        </div>
+        <div class="upper upper-right flex-col">
+            <p class="time">12:55</p>
+            <p class="date">18.03.2022</p>
+            <div class="place-wrapper wrapper">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M0,21V10L7.5,5L15,10V21H10V14H5V21H0M24,2V21H17V8.93L16,8.27V6H14V6.93L10,4.27V2H24M21,14H19V16H21V14M21,10H19V12H21V10M21,6H19V8H21V6Z" />
+                </svg>
+                <p>Warsaw</p>
+                <p>Poland</p>
+            </div>
+        </div>
+        <div class="graphs">
+
+        </div>
+    </div>
 </body>
 </html>
