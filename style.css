@@ -57,7 +57,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    padding: 1rem;
+    padding: 1.5rem 2rem;
 }
 
 .upper-right {
@@ -73,6 +73,12 @@ body {
     font-weight: 700;
 }
 
+.place-wrapper {
+    margin-left: auto;
+    width: 40%;
+    margin-top: 2rem;
+}
+
 /* UTILITY */
 
 .flex-col {
@@ -86,10 +92,14 @@ body {
 
 .wrapper {
     display: grid;
-    grid-template: 1fr 1fr / 2.25rem 1fr;
+    grid-template: 1fr 1fr / 1fr 2.25rem;
 }
 
 .wrapper > svg {
     grid-row: span 2;
     margin: auto;
+}
+
+.wrapper > p {
+    margin-right: 0.25rem;
 }
