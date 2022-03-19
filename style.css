@@ -10,7 +10,6 @@
 body {
     height: 100vh;
     overflow: hidden;
-    background-color: yellowgreen;
 }
 
 .nav {
@@ -43,6 +42,10 @@ body {
     display: grid;
     height: 100%;
     grid-template: 50% 1fr / 1fr 1fr;
+    background-color: yellowgreen;
+    /* background-image: url('http://i.stack.imgur.com/kx8MT.gif'); */
+    background-size: cover;
+    background-position: center;
 }
 
 /* .main > div {
@@ -79,6 +82,12 @@ body {
     margin-top: 2rem;
 }
 
+.weather-type-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 /* UTILITY */
 
 .flex-col {
@@ -88,6 +97,14 @@ body {
 
 .degs::after {
     content: '\00B0';
+}
+
+.percents::after {
+    content: '%';
+}
+
+.vel::after {
+    content: 'km/h';
 }
 
 .wrapper {
