@@ -92,6 +92,13 @@ body {
     gap: 0.5rem;
 }
 
+#weather-icon {
+    width: 48px;
+    margin-left: -0.5rem;
+    margin-block: -0.75rem;
+    aspect-ratio: 1 / 1;
+}
+
 /* UTILITY */
 
 .flex-col {
@@ -100,7 +107,7 @@ body {
 }
 
 .degs::after {
-    content: '\00B0';
+    content: '\00B0 C';
 }
 
 .percents::after {

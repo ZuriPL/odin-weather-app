@@ -1,5 +1,6 @@
 const clock = document.querySelector('.time')
 const date = document.querySelector('.date')
+const searchbar = document.querySelector('#searchbar')
 
 async function getData(location) {
     const response = await fetch(
@@ -9,22 +10,19 @@ async function getData(location) {
 }
 function useData(data) {
     console.log(data)
-    try {
-        document.querySelector('.wrapper.place-wrapper > p:first-of-type').textContent = data.name
-        document.querySelector('.wrapper.place-wrapper > p:last-of-type').textContent = data.sys.country
-        document.querySelector('#weather-type').textContent = data.weather[0].description
-        document.querySelector('.degs.main-temp').textContent = data.main.temp
-        document.querySelector('.degs.feel-temp').textContent = data.main['feels_like']
-        document.querySelector('.wind-speed-value.vel').textContent = data.wind.speed
-        document.querySelector('.humidity-value.percents').textContent = data.main.humidity
-    } catch (e) {
-        console.log('error')
-    }
+    searchbar.value = ''
+    if (data.cod >= 400) return 
+    document.querySelector('.wrapper.place-wrapper > p:first-of-type').textContent = data.name
+    document.querySelector('.wrapper.place-wrapper > p:last-of-type').textContent = data.sys.country
+    document.querySelector('#weather-type').textContent = data.weather[0].description
+    document.querySelector('.degs.main-temp').textContent = data.main.temp
+    document.querySelector('.degs.feel-temp').textContent = data.main['feels_like']
+    document.querySelector('.wind-speed-value.vel').textContent = data.wind.speed
+    document.querySelector('.humidity-value.percents').textContent = data.main.humidity
+    document.querySelector('#weather-icon').src = `https://openweathermap.org/img/wn/${data.weather[0].icon.substring(0, 2)}d@2x.png`
 }
 
-getData('Warsaw').then(res => useData(res))
-
-async function startClock() {
+function startClock() {
     const getCurrentTime = () => {
         let hour = new Date().getHours().toString()
         let minutes = new Date().getMinutes().toString()
@@ -47,8 +45,8 @@ startClock()
 
 date.textContent = new Date().getDate() + '.' + (new Date().getMonth() + 1) + '.' +new Date().getFullYear()
 
-
-document.querySelector('#searchbar').addEventListener('keydown', e => {
+getData('London').then(res => useData(res))
+searchbar.addEventListener('keydown', e => {
     if (e.key != "Enter") return
-    getData(e.target.value).then(res => useData(res))
+    getData(searchbar.value).then(res => useData(res))
 })
