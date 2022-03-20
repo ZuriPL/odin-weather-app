@@ -48,6 +48,10 @@ body {
     background-position: center;
 }
 
+#weather-type {
+    text-transform: capitalize;
+}
+
 /* .main > div {
     border: 2px solid blue;
 } */
@@ -104,7 +108,7 @@ body {
 }
 
 .vel::after {
-    content: 'km/h';
+    content: ' m/s';
 }
 
 .wrapper {
