@@ -35,6 +35,7 @@ body {
     background-color: transparent;
     border: none;
     border-bottom: 2px solid black;
+    padding-inline: 0.25rem;
 }
 
 
@@ -106,8 +107,13 @@ body {
     flex-direction: column;
 }
 
+.degs {
+    --unit: 'C';
+    --degree: '\00B0';
+}
+
 .degs::after {
-    content: '\00B0 C';
+    content: var(--degree, '\00B0') var(--unit);
 }
 
 .percents::after {

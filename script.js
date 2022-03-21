@@ -1,10 +1,12 @@
 const clock = document.querySelector('.time')
 const date = document.querySelector('.date')
 const searchbar = document.querySelector('#searchbar')
+let useMetric = true
+let currentLocation = 'London'
 
 async function getData(location) {
     const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=ed6f372defa1e8bf947ffa9b8e0fea17&units=metric`
+        `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=ed6f372defa1e8bf947ffa9b8e0fea17&units=${useMetric ? 'metric' : 'imperial'}`
     )
     return await response.json()
 }
@@ -20,6 +22,8 @@ function useData(data) {
     document.querySelector('.wind-speed-value.vel').textContent = data.wind.speed
     document.querySelector('.humidity-value.percents').textContent = data.main.humidity
     document.querySelector('#weather-icon').src = `https://openweathermap.org/img/wn/${data.weather[0].icon.substring(0, 2)}d@2x.png`
+    
+    const els = [ ...document.querySelectorAll('.degs') ].forEach(el => el.style.setProperty('--unit', `${useMetric ? "'C'" : "'F'"}`))
 }
 
 function startClock() {
@@ -45,8 +49,14 @@ startClock()
 
 date.textContent = new Date().getDate() + '.' + (new Date().getMonth() + 1) + '.' +new Date().getFullYear()
 
-getData('London').then(res => useData(res))
+getData(currentLocation).then(res => useData(res))
 searchbar.addEventListener('keydown', e => {
     if (e.key != "Enter") return
-    getData(searchbar.value).then(res => useData(res))
+    currentLocation = searchbar.value
+    getData(currentLocation).then(res => useData(res))
+})
+
+document.querySelector('#temp-toggle').addEventListener('click', e => {
+    useMetric = useMetric ? false : true
+    getData(currentLocation).then(res => useData(res))
 })
