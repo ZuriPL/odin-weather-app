@@ -8,7 +8,6 @@ let toId
 
 
 let bgcolor = ['orange', 'teal', 'yellowgreen', 'pink', 'gold', 'aqua', 'cornflowerblue'][Math.round(Math.random() * 6)]
-console.log(bgcolor)
 document.querySelector(':root').style.setProperty('--bg-color', bgcolor)
 
 async function getData(location) {
