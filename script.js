@@ -13,8 +13,9 @@ document.querySelector(':root').style.setProperty('--bg-color', bgcolor)
 
 async function getData(location) {
     const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=ed6f372defa1e8bf947ffa9b8e0fea17&units=${useMetric ? 'metric' : 'imperial'}`
-    )
+        `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=ed6f372defa1e8bf947ffa9b8e0fea17&units=${useMetric ? 'metric' : 'imperial'}`,
+        {mode: 'cors'}
+        )
     return await response.json()
 }
 function useData(data) {
