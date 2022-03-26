@@ -44,6 +44,7 @@ function startClock() {
         let minutes = new Date().getUTCMinutes().toString()
         return hour + ':' + (minutes.length == 1 ? '0' + minutes : minutes)
     }
+
     let time = getCurrentTime()
     clock.textContent = time
     toId = setTimeout(() => {
