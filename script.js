@@ -5,7 +5,6 @@ let useMetric = true
 let currentLocation = 'London'
 let timezone = 0
 let toId
-
 let bgcolor = ['orange', '#c1c1c1', 'yellowgreen', 'pink', 'gold', 'aqua', 'cornflowerblue'][Math.round(Math.random() * 6)]
 document.querySelector(':root').style.setProperty('--bg-color', bgcolor)
 
@@ -29,7 +28,7 @@ function useData(data) {
     document.querySelector('.wrapper.place-wrapper > p:last-of-type').textContent = data.sys.country
     document.querySelector('#weather-type').textContent = data.weather[0].description
     document.querySelector('.degs.main-temp').textContent = data.main.temp.toString().split('.')[0]
-    document.querySelector('.degs.feel-temp').textContent = data.main['feels_like']
+    document.querySelector('.degs.feel-temp').textContent = data.main['feels_like'].toString().split('.')[0]
     document.querySelector('.wind-speed-value.vel').textContent = data.wind.speed
     document.querySelector('.humidity-value.percents').textContent = data.main.humidity
     document.querySelector('.pressure-value.pressure').textContent = data.main.pressure
