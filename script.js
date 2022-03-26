@@ -7,7 +7,7 @@ let timezone = 0
 let toId
 
 
-let bgcolor = ['orange', 'teal', 'yellowgreen', 'pink', 'gold', 'aqua', 'cornflowerblue'][Math.round(Math.random() * 6)]
+let bgcolor = ['orange', '#c1c1c1', 'yellowgreen', 'pink', 'gold', 'aqua', 'cornflowerblue'][Math.round(Math.random() * 6)]
 document.querySelector(':root').style.setProperty('--bg-color', bgcolor)
 
 async function getData(location) {
